@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+        .gallery-heading {
+            color: deeppink;
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            font-size: 3rem; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .gallery-subtitle {
+            color: #333; 
+            text-align: center;
+            font-size: 1.5rem; 
+            margin-bottom: 40px; 
+        }
+        .card {
+            border: none;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            height: 250px;
+            object-fit: cover;
+        }
+        .card-body {
+            background-color: white;
+            padding: 20px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .card-title {
+            font-size: x-large;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333; 
+        }
+        .card-text {
+            font-size: large;
+            color: black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="gallery-heading">Image Gallery</h1>
+        <p class="gallery-subtitle">Explore stunning images from around the world</p>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRsG8yYLgF6FUyPKVggUnbJX1j5tsvj3wbCg&s" class="card-img-top" alt="Bitcoin Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Bitcoin</h5>
+                        <p class="card-text">Bitcoin is a cryptocurrency.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/022/004/957/small/address-map-location-icon-isolated-on-circle-background-vector.jpg" class="card-img-top" alt="Location Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Location</h5>
+                        <p class="card-text">Location icon on circle background.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://www.gstatic.com/webp/gallery/5.jpg" class="card-img-top" alt="Mountain View">
+                    <div class="card-body">
+                        <h5 class="card-title">Mountain View</h5>
+                        <p class="card-text">Beautiful landscape view of mountains.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="https://www.gstatic.com/webp/gallery/4.jpg" class="card-img-top" alt="Sea View">
+                    <div class="card-body">
+                        <h5 class="card-title">Sea View</h5>
+                        <p class="card-text">Scenic view of the sea and coastline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFx1xVVt0AK3UJpnhyV+XZT2/OLpP4xNkF3Q/mLWp2wC6fZw5gGCTY1xDz" crossorigin="anonymous"></script>
+</body>
+</html>
