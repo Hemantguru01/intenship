@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Registration Form</title>
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <style>
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+    .thank-you-container {
+      display: none; 
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .content {
+      background: #ffffff;
+      padding: 40px;
+      border: 2px solid transparent; 
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      animation: flickerBorder 1s ease infinite;
+    }
+    .content i {
+      font-size: 50px;
+      color: #28a745; 
+      margin-bottom: 20px;
+    }
+    .content h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .content p {
+      font-size: 18px;
+      color: #6c757d; 
+      margin-bottom: 0;
+    }
+    @keyframes flickerBorder {
+      0% {
+        border-color: transparent;
+      }
+      25% {
+        border-color: #ff5733; 
+      }
+      50% {
+        border-color: #007bff; 
+      }
+      75% {
+        border-color: #ffc107;
+      }
+      100% {
+        border-color: #28a745; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <h2>College Registration Form</h2>
+      <form id="registrationForm" onsubmit="return validateForm()">
+        <div class="form-group">
+          <label for="studentName">Student Name</label>
+          <input type="text" class="form-control" id="studentName" name="studentName">
+          <div id="studentNameError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="studentID">Student ID</label>
+          <input type="text" class="form-control" id="studentID" name="studentID">
+          <div id="studentIDError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" class="form-control" id="email" name="email">
+          <div id="emailError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" class="form-control" id="dob" name="dob">
+          <div id="dobError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="yearOfStudy">Year of Study</label>
+          <select class="form-control" id="yearOfStudy" name="yearOfStudy">
+            <option value="">Select Year</option>
+            <option value="1">First Year</option>
+            <option value="2">Second Year</option>
+            <option value="3">Third Year</option>
+            <option value="4">Fourth Year</option>
+          </select>
+          <div id="yearOfStudyError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="collegeName">College Name</label>
+          <input type="text" class="form-control" id="collegeName" name="collegeName">
+          <div id="collegeNameError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="parentContactNumber">Parent's Contact Number</label>
+          <input type="text" class="form-control" id="parentContactNumber" name="parentContactNumber">
+          <div id="parentContactNumberError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+          <div id="addressError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="enrollmentYear">Enrollment Year</label>
+          <input type="number" class="form-control" id="enrollmentYear" name="enrollmentYear">
+          <div id="enrollmentYearError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="state">State</label>
+          <input type="text" class="form-control" id="state" name="state">
+          <div id="stateError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" class="form-control" id="city" name="city">
+          <div id="cityError" class="error-message"></div>
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="button" class="btn btn-secondary ml-2" onclick="clearForm()">Clear Form</button>
+        </div>
+      </form>
+    </div>
+    
+    <div id="thankYouPage" class="thank-you-container">
+      <div class="content">
+        <i class="fas fa-check-circle"></i>
+        <h1 class="mb-3">Thank You!</h1>
+        <p class="mb-4">Your response has been received successfully.</p>
+        <p>We appreciate your registration.</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+  <script>
+    function validateForm() {
+      var studentName = document.getElementById('studentName').value;
+      var studentID = document.getElementById('studentID').value;
+      var email = document.getElementById('email').value;
+      var dob = document.getElementById('dob').value;
+      var yearOfStudy = document.getElementById('yearOfStudy').value;
+      var collegeName = document.getElementById('collegeName').value;
+      var parentContactNumber = document.getElementById('parentContactNumber').value;
+      var address = document.getElementById('address').value;
+      var enrollmentYear = document.getElementById('enrollmentYear').value;
+      var state = document.getElementById('state').value;
+      var city = document.getElementById('city').value;
+  
+      var studentNameError = document.getElementById('studentNameError');
+      var studentIDError = document.getElementById('studentIDError');
+      var emailError = document.getElementById('emailError');
+      var dobError = document.getElementById('dobError');
+      var yearOfStudyError = document.getElementById('yearOfStudyError');
+      var collegeNameError = document.getElementById('collegeNameError');
+      var parentContactNumberError = document.getElementById('parentContactNumberError');
+      var addressError = document.getElementById('addressError');
+      var enrollmentYearError = document.getElementById('enrollmentYearError');
+      var stateError = document.getElementById('stateError');
+      var cityError = document.getElementById('cityError');
+  
+      studentNameError.textContent = "";
+      studentIDError.textContent = "";
+      emailError.textContent = "";
+      dobError.textContent = "";
+      yearOfStudyError.textContent = "";
+      collegeNameError.textContent = "";
+      parentContactNumberError.textContent = "";
+      addressError.textContent = "";
+      enrollmentYearError.textContent = "";
+      stateError.textContent = "";
+      cityError.textContent = "";
+  
+      var isValid = true;
+  
+      if (studentName.trim() === "") {
+        studentNameError.textContent = "Student Name is required";
+        isValid = false;
+      }
+  
+      if (studentID.trim() === "") {
+        studentIDError.textContent = "Student ID is required";
+        isValid = false;
+      }
+  
+      if (email.trim() === "") {
+        emailError.textContent = "Email Address is required";
+        isValid = false;
+      }
+  
+      if (dob.trim() === "") {
+        dobError.textContent = "Date of Birth is required";
+        isValid = false;
+      }
+  
+      if (yearOfStudy === "") {
+        yearOfStudyError.textContent = "Year of Study is required";
+        isValid = false;
+      }
+  
+      if (collegeName.trim() === "") {
+        collegeNameError.textContent = "College Name is required";
+        isValid = false;
+      }
+  
+      if (parentContactNumber.trim() === "") {
+        parentContactNumberError.textContent = "Parent's Contact Number is required";
+        isValid = false;
+      }
+  
+      if (address.trim() === "") {
+        addressError.textContent = "Address is required";
+        isValid = false;
+      }
+  
+      if (enrollmentYear.trim() === "") {
+        enrollmentYearError.textContent = "Enrollment Year is required";
+        isValid = false;
+      }
+  
+      if (state.trim() === "") {
+        stateError.textContent = "State is required";
+        isValid = false;
+      }
+  
+      if (city.trim() === "") {
+        cityError.textContent = "City is required";
+        isValid = false;
+      }
+  
+      return isValid;
+    }
+  
+    function clearForm() {
+      document.getElementById('registrationForm').reset();
+      clearErrors();
+      hideThankYouPage(); 
+    }
+  
+    function clearErrors() {
+      
+      var errorMessages = document.getElementsByClassName('error-message');
+      for (var i = 0; i < errorMessages.length; i++) {
+        errorMessages[i].textContent = '';
+      }
+    }
+  
+    function showThankYouPage() {
+      document.getElementById('thankYouPage').style.display = 'block';
+    }
+  
+    function hideThankYouPage() {
+      document.getElementById('thankYouPage').style.display = 'none';
+    }
+  
+
+    document.getElementById('registrationForm').onsubmit = function(event) {
+      event.preventDefault(); 
+      if (validateForm()) {
+        document.querySelector('.form-container').style.display = 'none';
+        
+        showThankYouPage();
+  
+        clearErrors(); 
+      } else {
+       
+      }
+    };
+  </script>
+</body>
+</html>
